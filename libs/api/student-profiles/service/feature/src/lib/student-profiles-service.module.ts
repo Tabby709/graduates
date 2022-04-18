@@ -19,6 +19,7 @@ import { StudentProfilesRepository } from '@graduates/api/student-profiles/repos
     QueryHandlers.GetStudentProfilePFPHandler,
     QueryHandlers.GetStudentProfileSocialMediaHandler,
     QueryHandlers.GetStudentProfileTagsHandler,
+    //QueryHandlers.GetUserIDFromStudentNumHandler,
     CommandHandlers.DeleteStudentProfileFilesHandler,
     CommandHandlers.DeleteStudentProfileSocialMediaHandler,
     CommandHandlers.DeleteStudentProfileTagsHandler,

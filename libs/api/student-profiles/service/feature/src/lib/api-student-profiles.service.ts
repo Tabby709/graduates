@@ -4,7 +4,8 @@ import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { FileCategory, SocialMedia } from '@prisma/client';
 import { DeleteStudentProfileFilesCommand, DeleteStudentProfileSocialMediaCommand, DeleteStudentProfileTagsCommand } from './commands/impl/delete-student-profile.command';
 import { SetStudentProfileBioCommand, SetStudentProfileEmailCommand, SetStudentProfileFilesCommand, SetStudentProfileLocationCommand, SetStudentProfileNameCommand, SetStudentProfileProfilePictureCommand, SetStudentProfileSocialMediaCommand, SetStudentProfileTagsCommand } from './commands/impl/set-student-profile.command';
-import { GetStudentProfileBioQuery, GetStudentProfileDOBQuery, GetStudentProfileEmailsQuery, GetStudentProfileEmploymentStatusQuery, GetStudentProfileFilesQuery, GetStudentProfileLocationQuery, GetStudentProfileNameQuery, GetStudentProfilePFPQuery, GetStudentProfileSocialMediaQuery, GetStudentProfileTagsQuery } from './queries/impl';
+import { GetStudentProfileBioQuery,//GetUserIDFromStudentNumQuery, 
+GetStudentProfileDOBQuery, GetStudentProfileEmailsQuery, GetStudentProfileEmploymentStatusQuery, GetStudentProfileFilesQuery, GetStudentProfileLocationQuery, GetStudentProfileNameQuery, GetStudentProfilePFPQuery, GetStudentProfileSocialMediaQuery, GetStudentProfileTagsQuery } from './queries/impl';
 
 @Injectable()
 export class ApiStudentProfileService {
@@ -74,5 +75,10 @@ export class ApiStudentProfileService {
   async getEmploymentStatus(userId: string) {
     return await this.queryBus.execute( new GetStudentProfileEmploymentStatusQuery(userId))
   }
+ //async getUserIDFromStudentNumber(studentNum: string){
+   //return await this.queryBus.execute(new GetUserIDFromStudentNumQuery(studentNum))
+
+//}
+
 
 }

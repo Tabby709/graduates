@@ -1,6 +1,7 @@
 import { IQueryHandler, QueryHandler } from "@nestjs/cqrs";
 import { StudentProfilesRepository } from "@graduates/api/student-profiles/repository/data-access";
-import {GetStudentProfileBioQuery,GetStudentProfileDOBQuery,GetStudentProfileDegreeNameQuery,GetStudentProfileEmailsQuery,GetStudentProfileEmploymentStatusQuery,GetStudentProfileLocationQuery,GetStudentProfileSocialMediaQuery,GetStudentProfilePhoneNumberQuery,GetStudentProfileTagsQuery,GetStudentProfileNameQuery,GetStudentProfileFilesQuery,GetStudentProfilePFPQuery } from "../impl";
+import {GetStudentProfileBioQuery,GetStudentProfileDOBQuery,//GetUserIDFromStudentNumQuery,
+GetStudentProfileEmailsQuery,GetStudentProfileEmploymentStatusQuery,GetStudentProfileLocationQuery,GetStudentProfileSocialMediaQuery,GetStudentProfilePhoneNumberQuery,GetStudentProfileTagsQuery,GetStudentProfileNameQuery,GetStudentProfileFilesQuery,GetStudentProfilePFPQuery } from "../impl";
 
 @QueryHandler(GetStudentProfileNameQuery)
 export class GetStudentProfileNameHandler implements IQueryHandler<GetStudentProfileNameQuery> {
@@ -21,6 +22,18 @@ export class GetStudentProfileDOBHandler implements IQueryHandler<GetStudentProf
         return this.repository.getDoB(userId);
     }
 }
+
+//@QueryHandler(GetUserIDFromStudentNumQuery)
+//export class GetUserIDFromStudentNumHandler implements IQueryHandler<GetUserIDFromStudentNumQuery> {
+
+    //constructor(private readonly repository: StudentProfilesRepository) {}
+
+    //async execute(query: GetUserIDFromStudentNumQuery): Promise<any> {
+        //const {studentNum} = query;
+        //return this.repository.getUserIDFromStudentNumber(studentNum);
+    //}
+//}
+
 
 @QueryHandler(GetStudentProfilePFPQuery)
 export class GetStudentProfilePFPHandler implements IQueryHandler<GetStudentProfilePFPQuery> {
@@ -103,26 +116,8 @@ export class GetStudentProfileEmploymentStatusHandler implements IQueryHandler<G
 }
 
 
-// @QueryHandler(GetStudentProfilePhoneNumber)
-// export class GetStudentProfilePhoneNumberHandler implements IQueryHandler<GetStudentProfilePhoneNumber> {
-//     constructor(private readonly repository: StudentProfilesRepository) {}
-
-//     async execute(query: GetStudentProfilePhoneNumber): Promise<any> {
-//         const {userId} = query;
-//         return this.repository.getPhoneNumber(userId);
-//     }
-// }
 
 
-// @QueryHandler(GetStudentProfileDegreeName)
-// export class GetStudentProfileDegreeNameHandler implements IQueryHandler<GetStudentProfileDegreeName> {
-//     constructor(private readonly repository: StudentProfilesRepository) {}
-
-//     async execute(query: GetStudentProfileDegreeName): Promise<any> {
-//         const {userId} = query;
-//         return this.repository.getDegreeName(userId);
-//     }
-// }
 
 
 

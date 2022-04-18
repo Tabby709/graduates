@@ -1,6 +1,9 @@
 export class GetStudentProfileNameQuery {
     constructor(public readonly userId) {}
 }
+export class GetUserIDFromStudentNum {
+    constructor(public readonly studentNum){}
+}
 
 export class GetStudentProfileDOBQuery {
     constructor(public readonly userId) {}
